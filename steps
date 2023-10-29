@@ -1,0 +1,4 @@
+qemu-riscv64 ./helloworld - run
+riscv64-unknown-elf-ld -o helloworld helloworld.o link
+riscv64-unknown-elf-as -o helloworld.o helloworld.s
+
