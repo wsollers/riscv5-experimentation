@@ -1,30 +1,34 @@
-#
+# 0 "helloworld.S"
+# 0 "<built-in>"
+# 0 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 0 "<command-line>" 2
+# 1 "helloworld.S"
+
 # Risc-V Assembler program to print "Hello World!"
 # to stdout.
-#
-# a0-a2 - parameters to linux function services
-# a7 - linux function number
-#
 
-.global _start      # Provide program starting address to linker
+# a0-a2 - parameters to 1 function services
+# a7 - 1 function number
+
+
+.global _start # Provide program starting address to linker
 
 # Setup the parameters to print hello world
 # and then call Linux to do it.
 
-_start: addi  a0, x0, 1      # 1 = StdOut
-        la    a1, helloworld # load address of helloworld
-        addi  a2, x0, 13     # length of our string
-        addi  a7, x0, 64     # linux write system call
-        ecall                # Call linux to output the string
+_start: addi a0, x0, 1 # 1 = StdOut
+        la a1, helloworld # load address of helloworld
+        addi a2, x0, 13 # length of our string
+        addi a7, x0, 64 # 1 write system call
+        ecall # Call 1 to output the string
 
 # Setup the parameters to exit the program
 # and then call Linux to do it.
 
-        addi    a0, x0, 0   # Use 0 return code
-        addi    a7, x0, 93  # Service command code 93 terminates
-        ecall               # Call linux to terminate the program
+        addi a0, x0, 0 # Use 0 return code
+        addi a7, x0, 93 # Service command code 93 terminates
+        ecall # Call 1 to terminate the program
 
 .data
-helloworld:      .ascii "Hello World!\n"
-
-
+helloworld: .ascii "Hello World!\n"
